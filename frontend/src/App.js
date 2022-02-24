@@ -1,6 +1,11 @@
 import './App.css';
-import Inscription from "./Inscription";
-import LunchList from "./LunchList";
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import Inscription from "./Inscription/Inscription";
+import Connection from "./Connection/Connection";
+import LunchList from "./LunchList/LunchList";
+import CreateLunch from "./CreateLunch/CreateLunch";
+import CreateRestaurant from "./CreateRestaurant/CreateRestaurant";
+import LandingPage from "./LandingPage/LandingPage";
 
 const App = () => {
     const testData = [
@@ -49,10 +54,16 @@ const App = () => {
 
     return (
         <div className="App">
-            <Inscription />
-            <LunchList
-                lunches={testData}
-            />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Navigate replace to="/subscription" />}/>
+                    <Route path="/connection" element={ <Connection/>}/>
+                    <Route path="/subscription" element={ <Inscription/>}/>
+                    <Route path="/listing-lunches" element={ <LunchList/>}/>
+                    <Route path="/create-lunch" element={ <CreateLunch/>}/>
+                    <Route path="/create-restaurant" element={ <CreateRestaurant/>}/>
+                </Routes>
+            </BrowserRouter>
         </div>
     );
 }
