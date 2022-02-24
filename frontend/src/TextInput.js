@@ -1,12 +1,18 @@
 import './TextInput.css';
-import TextField from '@mui/material/TextField';
+const TextInput = ({label, value, setValue}) => {
 
-const TextInput = ({label}) => {
+
     return (
-        <div className="TextInput">
-            {label}
-            <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-        </div>
+        <form className="text-input">
+            <label className="label-text-input">{label}:
+
+            </label>
+            <input className="input-margin"
+                    type="text"
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+        </form>
     );
 }
 
