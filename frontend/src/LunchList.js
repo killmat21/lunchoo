@@ -3,14 +3,12 @@ import LunchCard from "./LunchCard";
 const LunchList = ({lunches}) => {
     return (
         <div className="lunchesList">
-            {lunches.forEach(lunch => {
-                return (
+            {lunches.map(lunch => (
                     <LunchCard
                         lunch={lunch}
                     />
                 )
-                console.log("wesh");
-            })}
+            )}
         </div>
     );
 }
