@@ -1,3 +1,11 @@
 .App {
   text-align: center;
 }
+
+.lunchCard {
+  border: 1px solid black;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px 20px;
+  text-align: left;
+}
