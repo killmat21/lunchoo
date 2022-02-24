@@ -59,7 +59,7 @@ const App = () => {
                     <Route path="/" element={<Navigate replace to="/subscription" />}/>
                     <Route path="/connection" element={ <Connection/>}/>
                     <Route path="/subscription" element={ <Inscription/>}/>
-                    <Route path="/listing-lunches" element={ <LunchList/>}/>
+                    <Route path="/listing-lunches" element={ <LunchList lunches={testData}/>}/>
                     <Route path="/create-lunch" element={ <CreateLunch/>}/>
                     <Route path="/create-restaurant" element={ <CreateRestaurant/>}/>
                 </Routes>
