@@ -1,5 +1,17 @@
-.TextInput {
+.text-input {
     display: flex;
     align-items: center;
     margin-bottom: 16px;
+    width: 18%;
+    justify-content: space-between;
+}
+
+.input-margin {
+    margin-left: 16px;
+    height: 28px;
+}
+
+.label-text-input {
+    width: 25px;
+    font-size: 24px;
 }
