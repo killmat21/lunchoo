@@ -1,5 +1,5 @@
 import './TextInput.css';
-const TextInput = ({label, value, setValue}) => {
+const TextInput = ({label, type, value, setValue}) => {
 
 
     return (
@@ -8,7 +8,7 @@ const TextInput = ({label, value, setValue}) => {
 
             </label>
             <input className="input-margin"
-                    type="text"
+                    type={type}
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                 />
