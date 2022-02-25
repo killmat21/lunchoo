@@ -9,6 +9,13 @@ const LunchList = ({lunches}) => {
     const onButtonClick = () => {
         navigate(`/create-lunch`);
     }
+    const userName = localStorage.getItem("user_name")
+    let helloText = ""
+    if (userName) {
+        helloText = "Hello " + userName + " 👋🏻"
+    } else {
+        helloText = "Hello 👋🏻"
+    }
 
     return (
         <>
@@ -16,7 +23,7 @@ const LunchList = ({lunches}) => {
                 A lunch to propose?
             </Button>
             <SubHeader
-                title="Hello 👋🏻"
+                title={helloText}
                 subtitle="Who will have the privilege of having lunch with you?"
             />
 

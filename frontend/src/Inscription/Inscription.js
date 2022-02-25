@@ -16,7 +16,8 @@ const Inscription = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [team, setTeam] = useState("");
-    const onButtonClick = () => {
+    const [formError, setFormError] = useState(false);
+    async function onButtonClick() {
         const user = {
             email,
             password,
@@ -26,14 +27,16 @@ const Inscription = () => {
             photo: "https://google.com",
         }
         // TODO Add team in model and here
-        axios.post(`http://127.0.0.1:8000/user/`, user)
+        await axios.post(`http://127.0.0.1:8000/user/`, user)
           .then(res => {
             console.log(res);
             console.log(res.data);
             localStorage.setItem("user_id", res.data.id)
-          })
-        navigate(`/listing-lunches`);
-        console.log(firstName, lastName, team)
+            localStorage.setItem("user_name", firstName)
+            navigate(`/listing-lunches`);
+          }).catch(function(error) {
+              setFormError(true)
+            });
     }
 
     return (
@@ -90,6 +93,9 @@ const Inscription = () => {
             >
                 Register
             </Button>
+            {formError && (
+                <p className="formError">Error : please fill all fields</p>
+            )}
         </>
     );
 }

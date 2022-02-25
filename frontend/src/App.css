@@ -10,3 +10,8 @@ html {
   max-width: 920px;
   margin: auto;
 }
+
+.formError {
+  color: red;
+  font-family: "Quicksand";
+}
