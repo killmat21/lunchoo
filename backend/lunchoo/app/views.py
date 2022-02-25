@@ -72,10 +72,10 @@ class Lunches(View):
         }
         for one_lunch in all_lunch:
             lunch = Lunch.objects.get(id=one_lunch["id"])
-            user_pk_list = [x["user_id"] for x in list(lunch_sub) if x["lunch_id"] == one_lunch]
+            user_pk_list = [x["user_id"] for x in list(lunch_sub) if x["lunch_id"] == one_lunch["id"]]
             users = list(Users.objects.filter(pk__in=user_pk_list))
             lunch = model_to_dict(lunch)
-            lunch["users"] = users
+            lunch["users"] = [model_to_dict(user) for user in list(users)]
             res["lunches"].append(lunch)
         return JsonResponse(res, status=200)
 
