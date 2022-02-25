@@ -1,6 +1,7 @@
 import './App.css';
 import Inscription from "./Inscription";
 import LunchList from "./LunchList";
+import LunchForm from "./LunchForm";
 
 const App = () => {
     const testData = [
@@ -49,10 +50,11 @@ const App = () => {
 
     return (
         <div className="App">
-            <Inscription />
-            <LunchList
-                lunches={testData}
-            />
+            {/*<Inscription />*/}
+            {/*<LunchList*/}
+            {/*    lunches={testData}*/}
+            {/*/>*/}
+            <LunchForm />
         </div>
     );
 }

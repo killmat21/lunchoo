@@ -8,10 +8,10 @@ const TextInput = ({label, type, value, setValue}) => {
 
             </label>
             <input className="input-margin"
-                    type={type}
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                />
+                type={type}
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+            />
         </form>
     );
 }
