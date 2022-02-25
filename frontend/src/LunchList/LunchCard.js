@@ -16,6 +16,15 @@ const onJoinGroupClick = (lunch_id) => {
 }
 
 const LunchCard = ({lunch}) => {
+    const user_id = localStorage.getItem('user_id');
+    let user_already_subscribed = false;
+    for (const user of lunch.users) {
+        if (user.id == user_id) {
+            user_already_subscribed = true;
+            break;
+        }
+    }
+
     return (
         <div className="lunchCard">
             <p className="restaurantName"><span>🍕</span> {lunch.place}</p>
@@ -25,7 +34,7 @@ const LunchCard = ({lunch}) => {
                 {lunch.users.map(participant => (
                     <img src={person} alt=""/>
                 ))}
-                {lunch.users.length < lunch.number_places &&
+                {lunch.users.length < lunch.number_places && !user_already_subscribed &&
                     <Button className="joinGroupButton" onClick={() => onJoinGroupClick(lunch.id)}>Join Group</Button>
                 }
             </div>
