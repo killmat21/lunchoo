@@ -1,6 +1,6 @@
 import './Inscription.css';
 import Button from '@mui/material/Button';
-import TextInput from "./TextInput";
+import TextInput from "../TextInput";
 import {useState} from "react";
 
 const Inscription = () => {
