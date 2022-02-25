@@ -33,7 +33,7 @@ class User(View):
         user = Users.objects.create(**user_data)
 
         data = {
-            "message": f"New user created id: {user.id}"
+            "id": user.id
         }
         return JsonResponse(data, status=201)
 
@@ -64,5 +64,9 @@ class Lunches(View):
             "message": f"New lunch created id: {lunch.id}"
         }
         return JsonResponse(data, status=201)
+
+    def get(self, request):
+        lunches = Lunch.objects.all().order_by('departure_date').values()
+        return JsonResponse({"lunches": list(lunches)}, status=200)
 
 
