@@ -14,7 +14,7 @@ const LunchForm = () => {
     let navigate = useNavigate();
 
     const [restaurant, setRestaurant] = useState("");
-    const [numberPlaces, setNumberPlaces] = useState("");
+    const [numberPlaces, setNumberPlaces] = useState(1);
     const [leaveTime, setLeaveTime] = useState(new Date('2020-01-01 12:00'));
     const onButtonClick = () => {
         const lunch = {
@@ -55,7 +55,7 @@ const LunchForm = () => {
                 />
                 <TextInput
                     label={"How many people do you want to invite?"}
-                    type={"text"}
+                    type={"number"}
                     value={numberPlaces}
                     setValue={setNumberPlaces}
                     sx={{width: '100%'}}
