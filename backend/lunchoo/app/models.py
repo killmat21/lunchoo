@@ -22,18 +22,12 @@ class Lunch(models.Model):
         DELIVERY = 'Delivery'
 
     id = models.AutoField(primary_key=True)
-    departure_date = models.DateTimeField()
-    book_limit_date = models.DateTimeField()
+    departure_date = models.TimeField()
     number_places = models.IntegerField()
     place = models.CharField(max_length=255)
-    type = models.CharField(
-        max_length=255,
-        choices=LunchType.choices,
-        default=LunchType.EAT_IN,
-    )
 
 
-class LunchSubcribers(models.Model):
+class LunchSubscribers(models.Model):
     lunch = models.ForeignKey(Lunch, on_delete=models.CASCADE)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
 

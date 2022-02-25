@@ -3,9 +3,10 @@ from django.shortcuts import render
 from django.views import View
 from django.http import JsonResponse
 import json
-from .models import Users, Lunch
+from .models import Users, Lunch, LunchSubscribers
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django.forms.models import model_to_dict
 
 @method_decorator(csrf_exempt, name='dispatch')
 class User(View):
@@ -43,30 +44,39 @@ class Lunches(View):
 
     def post(self, request):
         data = json.loads(request.body.decode("utf-8"))
+        user_id = data.get('user_id')
         place = data.get('place')
-
         departure_date = data.get('departure_date')
-        book_limit_date = data.get('book_limit_date')
+        print(departure_date)
         number_places = data.get('number_places')
-        type = data.get('type')
 
         lunch_data = {
             'place': place,
             'departure_date': departure_date,
-            'book_limit_date': book_limit_date,
             'number_places': int(number_places),
-            'type': type,
         }
 
         lunch = Lunch.objects.create(**lunch_data)
-
+        user = Users.objects.get(id=user_id)
+        LunchSubscribers.objects.create(lunch=lunch, user=user)
         data = {
-            "message": f"New lunch created id: {lunch.id}"
+            "id": lunch.id
         }
         return JsonResponse(data, status=201)
 
     def get(self, request):
-        lunches = Lunch.objects.all().order_by('departure_date').values()
-        return JsonResponse({"lunches": list(lunches)}, status=200)
+        lunch_sub = LunchSubscribers.objects.all().values()
+        all_lunch = list(Lunch.objects.all().values())
+        res = {
+            "lunches": []
+        }
+        for one_lunch in all_lunch:
+            lunch = Lunch.objects.get(id=one_lunch["id"])
+            user_pk_list = [x["user_id"] for x in list(lunch_sub) if x["lunch_id"] == one_lunch]
+            users = list(Users.objects.filter(pk__in=user_pk_list))
+            lunch = model_to_dict(lunch)
+            lunch["users"] = users
+            res["lunches"].append(lunch)
+        return JsonResponse(res, status=200)
 
 
