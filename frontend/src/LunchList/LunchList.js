@@ -44,6 +44,7 @@ const LunchList = () => {
                 {lunches.map(lunch => (
                         <LunchCard
                             lunch={lunch}
+                            setLunches={setLunches}
                         />
                     )
                 )}
