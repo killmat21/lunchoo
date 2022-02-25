@@ -25,7 +25,7 @@ const LunchCard = ({lunch}) => {
                 {lunch.users.map(participant => (
                     <img src={person} alt=""/>
                 ))}
-                <Button className="joinGroupButton" onClick={onJoinGroupClick(lunch.id)}>Join Group</Button>
+                <Button className="joinGroupButton" onClick={onJoinGroupClick(lunch)}>Join Group</Button>
             </div>
         </div>
     );
