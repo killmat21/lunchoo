@@ -6,3 +6,18 @@
     max-width: 920px;
     margin: auto;
 }
+
+.createLunchButton {
+    font-size: 12px !important;
+    text-transform: unset !important;
+    float: right !important;
+    color: white !important;
+    background-color: #FF9014 !important;
+    border: None;
+    border-radius: 15px !important;
+    padding: 10px 15px !important;
+    margin-top: 8px !important;
+    position: relative;
+    top: -50px;
+    width: 175px;
+}
