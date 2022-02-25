@@ -3,10 +3,10 @@ import './LunchCard.css';
 import Button from '@mui/material/Button';
 import person from './person.png'
 
-const onJoinGroupClick = (lunch) => {
+const onJoinGroupClick = (lunch_id) => {
     const join = {
-        user_id: localStorage.getItem("user_id"),
-        lunch_id: lunch.id
+        user: localStorage.getItem("user_id"),
+        lunch: lunch_id
     }
     axios.post(`http://127.0.0.1:8000/lunch_subscribe/`, join)
           .then(res => {
@@ -26,7 +26,7 @@ const LunchCard = ({lunch}) => {
                     <img src={person} alt=""/>
                 ))}
                 {lunch.users.length < lunch.number_places &&
-                    <Button className="joinGroupButton" onClick={() => onJoinGroupClick(lunch)}>Join Group</Button>
+                    <Button className="joinGroupButton" onClick={() => onJoinGroupClick(lunch.id)}>Join Group</Button>
                 }
             </div>
         </div>

@@ -79,4 +79,18 @@ class Lunches(View):
             res["lunches"].append(lunch)
         return JsonResponse(res, status=200)
 
+@method_decorator(csrf_exempt, name='dispatch')
+class LunchSubscriber(View):
 
+    def post(self, request):
+        data = json.loads(request.body.decode("utf-8"))
+        user_id = data.get('user')
+        lunch_id = data.get('lunch')
+        lunch = Lunch.objects.get(id=lunch_id)
+        user = Users.objects.get(id=user_id)
+        LunchSubscribers.objects.create(lunch=lunch, user=user)
+        data = {
+            "user": user_id,
+            "lunch": lunch_id
+        }
+        return JsonResponse(data, status=201)
