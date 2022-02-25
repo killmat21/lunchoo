@@ -1,4 +1,5 @@
 import './Inscription.css';
+import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextInput from "../TextInput";
 import {useState} from "react";
@@ -8,6 +9,8 @@ import Card from '@mui/material/Card';
 import UploadPhoto from "../UploadPhoto/UploadPhoto";
 
 const Inscription = () => {
+    let navigate = useNavigate();
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -29,6 +32,7 @@ const Inscription = () => {
             console.log(res.data);
             localStorage.setItem("user_id", res.data.id)
           })
+        navigate(`/listing-lunches`);
         console.log(firstName, lastName, team)
     }
 
