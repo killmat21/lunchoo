@@ -2,11 +2,11 @@ from rest_framework.serializers import ModelSerializer
 from .models import Users, Lunches, LunchSubcribers, Restaurants
 
 
-class UsersSerializer(ModelSerializer):
+class UserSerializer(ModelSerializer):
     class Meta:
         model = Users
         fields = (
-            'id', 'first_name', 'last_name', 'email', 'hashed_password', 'photo',
+            'id', 'first_name', 'last_name', 'email', 'password', 'photo',
         )
 
 
@@ -31,4 +31,4 @@ class RestaurantsSerializer(ModelSerializer):
         model = Restaurants
         fields = (
             'id', 'name', 'address', 'restaurant', 'type', 'photo',
-        )
+        ) 
