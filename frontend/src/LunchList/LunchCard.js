@@ -9,14 +9,14 @@ const onJoinGroupClick = (lunch) => {
 const LunchCard = ({lunch}) => {
     return (
         <div className="lunchCard">
-            <p className="restaurantName"><span>🍕</span> {lunch.restaurant}</p>
-            <p className="time">{lunch.departureDate}</p>
+            <p className="restaurantName"><span>🍕</span> {lunch.place}</p>
+            <p className="time">{lunch.departure_date}</p>
             <div className="lunchParticipantsList">
-                <p>{lunch.participantsList.length} people going</p>
-                {lunch.participantsList.map(participant => (
+                <p>{lunch.users.length} people going</p>
+                {lunch.users.map(participant => (
                     <img src={person} alt=""/>
                 ))}
-                <Button className="joinGroupButton" onClick={onJoinGroupClick(lunch)}>Join Group</Button>
+                <Button className="joinGroupButton" onClick={onJoinGroupClick(lunch.id)}>Join Group</Button>
             </div>
         </div>
     );

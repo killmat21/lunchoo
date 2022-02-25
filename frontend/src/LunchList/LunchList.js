@@ -1,10 +1,20 @@
 import './LunchList.css';
+import {useState,useEffect} from "react";
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import LunchCard from "./LunchCard";
 import Button from '@mui/material/Button';
 import SubHeader from "../SubHeader/SubHeader";
 
-const LunchList = ({lunches}) => {
+const LunchList = () => {
+    const [lunches, setLunches] = useState([]);
+    useEffect(() => {
+        axios
+          .get("http://127.0.0.1:8000/lunch/")
+          .then(response => setLunches(response.data.lunches));
+      }, []);
+    console.log("COUCOU : " + JSON.stringify(lunches))
+
     let navigate = useNavigate();
     const onButtonClick = () => {
         navigate(`/create-lunch`);
