@@ -52,7 +52,53 @@ const App = () => {
                     image: "",
                 },
             ]
-        }
+        },
+        {
+            restaurant: "toto",
+            departureDate: "25/02/2022 12:00",
+            bookingDate: "25/02/2022 11:30",
+            type: "To go",
+            participantsList: [
+                {
+                    first_name: "Paulo",
+                    last_name: "La Brute",
+                    image: "",
+                },
+                {
+                    first_name: "Kiyane",
+                    last_name: "Mbappe",
+                    image: "",
+                },
+                {
+                    first_name: "Natasha",
+                    last_name: "Le Blond",
+                    image: "",
+                },
+            ]
+        },
+        {
+            restaurant: "toto",
+            departureDate: "25/02/2022 12:00",
+            bookingDate: "25/02/2022 11:30",
+            type: "To go",
+            participantsList: [
+                {
+                    first_name: "Paulo",
+                    last_name: "La Brute",
+                    image: "",
+                },
+                {
+                    first_name: "Kiyane",
+                    last_name: "Mbappe",
+                    image: "",
+                },
+                {
+                    first_name: "Natasha",
+                    last_name: "Le Blond",
+                    image: "",
+                },
+            ]
+        },
     ]
 
     return (

@@ -1,0 +1,8 @@
+.lunchesList {
+    font-family: "Quicksand";
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 920px;
+    margin: auto;
+}
