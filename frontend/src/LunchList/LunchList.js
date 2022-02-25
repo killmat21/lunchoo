@@ -6,7 +6,7 @@ const LunchList = ({lunches}) => {
     return (
         <>
             <SubHeader
-                title="Hello 👋"
+                title="Hello 👋🏻"
                 subtitle="Who will have the privilege of having lunch with you?"
             />
             <div className="lunchesList">
