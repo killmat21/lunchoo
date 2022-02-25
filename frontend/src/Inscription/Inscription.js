@@ -40,7 +40,7 @@ const Inscription = () => {
             />
             <div className="inscription">
                 <UploadPhoto />
-                <div>
+                <div className="inscription_wrapper">
                     <TextInput
                         label={"E-mail Address"}
                         type={"text"}
@@ -79,6 +79,7 @@ const Inscription = () => {
                 </div>
             </div>
             <Button
+                className="validationButton"
                 variant="contained"
                 onClick={onButtonClick}
                 sx={{width: '700px', background: '#FF9014', right: '313px'}}
