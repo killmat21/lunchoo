@@ -12,9 +12,7 @@ import SubHeader from "./SubHeader/SubHeader";
 const LunchForm = () => {
     const [restaurant, setRestaurant] = useState("");
     const [numberPlaces, setNumberPlaces] = useState("");
-    const [leaveTime, setLeaveTime] = useState("");
-    const [bookingTime, setBookingTime] = useState("");
-    const [type, setType] = useState("ON_SITE");
+    const [leaveTime, setLeaveTime] = useState(new Date('2020-01-01 12:00'));
     const onButtonClick = () => {
         const lunch = {
             place: restaurant,
@@ -27,13 +25,13 @@ const LunchForm = () => {
             console.log(res);
             console.log(res.data);
           })
-        console.log(restaurant, leaveTime, bookingTime, type)
+        console.log(restaurant, leaveTime, numberPlaces)
     }
 
     return (
         <>
             <SubHeader
-                title="Want to offer lunch? 🤗"
+                title="Want to organize a lunch? 🤗"
                 subtitle="Please fill the form to continue :)"
             />
             <div className="lunch-form">
@@ -42,7 +40,7 @@ const LunchForm = () => {
                     type={"text"}
                     value={restaurant}
                     setValue={setRestaurant}
-                    sx={{width: '100%'}}
+                    sx={{width: '100%', marginBottom: '16px'}}
                     className="width-500"
                 />
                 <DateInput
@@ -59,15 +57,12 @@ const LunchForm = () => {
                     sx={{width: '100%'}}
                     className="width-500"
                 />
-                {/*<SelectInput*/}
-                {/*    label={"Type"}*/}
-                {/*    setValue={setType}*/}
-                {/*/>*/}
             </div>
             <Button
+                className="validationButton"
                 variant="contained"
                 onClick={onButtonClick}
-                sx={{width: '40%', background: '#FF9014'}}
+                sx={{width: '700px', background: '#FF9014', right: '100px'}}
             >
                 Add lunch event
             </Button>
