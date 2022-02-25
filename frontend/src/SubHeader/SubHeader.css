@@ -1,0 +1,14 @@
+.subheader {
+    margin: 32px 0 63px 130px;
+    text-align: start;
+}
+
+.subheader-title {
+    color: #FF9014;
+    font-size: 36px;
+}
+
+.subheader-subtitle {
+    color: #8C8C8C;
+    font-size: 18px;
+}

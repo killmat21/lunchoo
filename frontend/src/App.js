@@ -7,6 +7,8 @@ import LunchForm from "./LunchForm";
 import CreateLunch from "./CreateLunch/CreateLunch";
 import CreateRestaurant from "./CreateRestaurant/CreateRestaurant";
 import LandingPage from "./LandingPage/LandingPage";
+import Header from "./Header/Header";
+import SubHeader from "./SubHeader/SubHeader";
 
 const App = () => {
     const testData = [
@@ -55,6 +57,7 @@ const App = () => {
 
     return (
         <div className="App">
+            <Header />
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Navigate replace to="/subscription" />}/>

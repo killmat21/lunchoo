@@ -1,9 +1,5 @@
 .text-input {
-    display: flex;
-    align-items: center;
     margin-bottom: 16px;
-    width: 25%;
-    justify-content: space-between;
 }
 
 .input-margin {
