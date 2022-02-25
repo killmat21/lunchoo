@@ -16,7 +16,7 @@ const LunchList = ({lunches}) => {
                 A lunch to propose?
             </Button>
             <SubHeader
-                title="Hello 👋"
+                title="Hello 👋🏻"
                 subtitle="Who will have the privilege of having lunch with you?"
             />
 

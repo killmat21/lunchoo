@@ -35,7 +35,7 @@ const LunchForm = () => {
     return (
         <>
             <SubHeader
-                title="Want to organize a lunch? 🤗"
+                title="Want to propose a lunch? 🤗"
                 subtitle="Please fill the form to continue :)"
             />
             <div className="lunch-form">
