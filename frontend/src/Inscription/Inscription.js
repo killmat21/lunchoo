@@ -40,7 +40,7 @@ const Inscription = () => {
         <>
             <SubHeader
                 title="Hello 👋🏻"
-                subtitle="Please fill the form"
+                subtitle="Please fill the form to continue :)"
             />
             <div className="inscription">
                 <UploadPhoto />
