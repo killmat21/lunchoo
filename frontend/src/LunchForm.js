@@ -6,13 +6,27 @@ import TextInput from "./TextInput";
 import {useState} from "react";
 import DateInput from "./DateInput";
 import SelectInput from "./SelectInput"
+import axios from "axios";
 
 const LunchForm = () => {
     const [restaurant, setRestaurant] = useState("");
+    const [numberPlaces, setNumberPlaces] = useState("");
     const [leaveTime, setLeaveTime] = useState("");
     const [bookingTime, setBookingTime] = useState("");
-    const [type, setType] = useState("on_site");
+    const [type, setType] = useState("ON_SITE");
     const onButtonClick = () => {
+        const lunch = {
+            place: restaurant,
+            departure_date: leaveTime,
+            book_limit_date: bookingTime,
+            number_places: numberPlaces,
+            type: type,
+        }
+        axios.post(`http://127.0.0.1:8000/lunch/`, lunch)
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
         console.log(restaurant, leaveTime, bookingTime, type)
     }
 
@@ -23,6 +37,12 @@ const LunchForm = () => {
                 type={"text"}
                 value={restaurant}
                 setValue={setRestaurant}
+            />
+            <TextInput
+                label={"Nombre de personnes max"}
+                type={"text"}
+                value={numberPlaces}
+                setValue={setNumberPlaces}
             />
             <DateInput
                 label={"Heure de départ"}
@@ -38,8 +58,6 @@ const LunchForm = () => {
             />
             <SelectInput
                 label={"Type"}
-                type={"select"}
-                value={type}
                 setValue={setType}
             />
             <Button variant="contained" onClick={onButtonClick}>Valider</Button>

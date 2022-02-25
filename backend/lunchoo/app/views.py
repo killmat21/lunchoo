@@ -1,10 +1,9 @@
 from django.shortcuts import render
 
-from .models import Users
 from django.views import View
 from django.http import JsonResponse
 import json
-from .models import Users
+from .models import Users, Lunch
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
@@ -37,4 +36,33 @@ class User(View):
             "message": f"New user created id: {user.id}"
         }
         return JsonResponse(data, status=201)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class Lunches(View):
+
+    def post(self, request):
+        data = json.loads(request.body.decode("utf-8"))
+        place = data.get('place')
+
+        departure_date = data.get('departure_date')
+        book_limit_date = data.get('book_limit_date')
+        number_places = data.get('number_places')
+        type = data.get('type')
+
+        lunch_data = {
+            'place': place,
+            'departure_date': departure_date,
+            'book_limit_date': book_limit_date,
+            'number_places': int(number_places),
+            'type': type,
+        }
+
+        lunch = Lunch.objects.create(**lunch_data)
+
+        data = {
+            "message": f"New lunch created id: {lunch.id}"
+        }
+        return JsonResponse(data, status=201)
+
 
