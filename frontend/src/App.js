@@ -50,10 +50,10 @@ const App = () => {
 
     return (
         <div className="App">
-            {/*<Inscription />*/}
-            {/*<LunchList*/}
-            {/*    lunches={testData}*/}
-            {/*/>*/}
+            <Inscription />
+            <LunchList
+                lunches={testData}
+            />
             <LunchForm />
         </div>
     );
