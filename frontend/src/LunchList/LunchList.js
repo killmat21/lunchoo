@@ -9,10 +9,14 @@ import SubHeader from "../SubHeader/SubHeader";
 const LunchList = () => {
     const [lunches, setLunches] = useState([]);
     useEffect(() => {
+        fetchData()
+      }, []);
+
+    const fetchData = () => {
         axios
           .get("http://127.0.0.1:8000/lunch/")
           .then(response => setLunches(response.data.lunches));
-      }, []);
+    }
 
     let navigate = useNavigate();
     const onButtonClick = () => {
