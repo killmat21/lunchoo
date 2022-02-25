@@ -33,7 +33,7 @@ const LunchCard = ({lunch, setLunches}) => {
     return (
         <div className="lunchCard">
             <p className="restaurantName"><span>🍕</span> {lunch.place}</p>
-            <p className="time">{lunch.departure_date}</p>
+            <p className="time">{lunch.departure_date.slice(0, -3)}</p>
             <div className="lunchParticipantsList">
                 <p>{lunch.users.length}/{lunch.number_places} people going</p>
                 {lunch.users.map(participant => (
