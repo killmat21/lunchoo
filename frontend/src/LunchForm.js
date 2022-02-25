@@ -15,11 +15,12 @@ const LunchForm = () => {
 
     const [restaurant, setRestaurant] = useState("");
     const [numberPlaces, setNumberPlaces] = useState(1);
-    const [leaveTime, setLeaveTime] = useState(new Date('12:00'));
+    const [leaveTime, setLeaveTime] = useState(new Date('2020-01-01 12:00'));
     const onButtonClick = () => {
+        const hours = leaveTime.getHours() + ':' + ("0" + leaveTime.getMinutes()).slice(-2);
         const lunch = {
             place: restaurant,
-            departure_date: leaveTime,
+            departure_date: hours,
             number_places: numberPlaces,
             user_id: localStorage.getItem("user_id"),
         }
