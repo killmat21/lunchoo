@@ -1,4 +1,5 @@
 import './LunchForm.css';
+import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -10,6 +11,8 @@ import axios from "axios";
 import SubHeader from "./SubHeader/SubHeader";
 
 const LunchForm = () => {
+    let navigate = useNavigate();
+
     const [restaurant, setRestaurant] = useState("");
     const [numberPlaces, setNumberPlaces] = useState("");
     const [leaveTime, setLeaveTime] = useState(new Date('2020-01-01 12:00'));
@@ -24,6 +27,7 @@ const LunchForm = () => {
           .then(res => {
             console.log(res);
             console.log(res.data);
+            navigate(`/listing-lunches`);
           })
         console.log(restaurant, leaveTime, numberPlaces)
     }
