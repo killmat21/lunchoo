@@ -42,43 +42,48 @@ const Inscription = () => {
                 <UploadPhoto />
                 <div>
                     <TextInput
-                        label={"E-mail"}
+                        label={"E-mail Address"}
                         type={"text"}
                         value={email}
                         setValue={setEmail}
+                        required
                     />
                     <TextInput
-                        label={"Mot de passe"}
+                        label={"Password"}
                         type={"password"}
                         value={password}
                         setValue={setPassword}
+                        required
                     />
                     <TextInput
-                        label={"Prénom"}
+                        label={"First Name"}
                         type={"text"}
                         value={firstName}
                         setValue={setFirstName}
+                        required
                     />
                     <TextInput
-                        label={"Nom"}
+                        label={"Last Name"}
                         type={"text"}
                         value={lastName}
                         setValue={setLastName}
+                        required
                     />
                     <TextInput
                         label={"Team"}
                         type={"text"}
                         value={team}
                         setValue={setTeam}
+                        required
                     />
                 </div>
             </div>
             <Button
                 variant="contained"
                 onClick={onButtonClick}
-                sx={{width: '40%', background: '#FF9014'}}
+                sx={{width: '700px', background: '#FF9014', right: '313px'}}
             >
-                Valider
+                Register
             </Button>
         </>
     );

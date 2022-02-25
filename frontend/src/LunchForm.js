@@ -1,4 +1,4 @@
-import './Inscription/Inscription.css';
+import './LunchForm.css';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -7,6 +7,7 @@ import {useState} from "react";
 import DateInput from "./DateInput";
 import SelectInput from "./SelectInput"
 import axios from "axios";
+import SubHeader from "./SubHeader/SubHeader";
 
 const LunchForm = () => {
     const [restaurant, setRestaurant] = useState("");
@@ -18,9 +19,7 @@ const LunchForm = () => {
         const lunch = {
             place: restaurant,
             departure_date: leaveTime,
-            book_limit_date: bookingTime,
             number_places: numberPlaces,
-            type: type,
             user_id: localStorage.getItem("user_id"),
         }
         axios.post(`http://127.0.0.1:8000/lunch/`, lunch)
@@ -32,37 +31,48 @@ const LunchForm = () => {
     }
 
     return (
-        <div className="inscription">
-            <TextInput
-                label={"Restaurant"}
-                type={"text"}
-                value={restaurant}
-                setValue={setRestaurant}
+        <>
+            <SubHeader
+                title="Want to offer lunch? 🤗"
+                subtitle="Please fill the form to continue :)"
             />
-            <TextInput
-                label={"Nombre de personnes max"}
-                type={"text"}
-                value={numberPlaces}
-                setValue={setNumberPlaces}
-            />
-            <DateInput
-                label={"Heure de départ"}
-                type={"text"}
-                value={leaveTime}
-                setValue={setLeaveTime}
-            />
-            <DateInput
-                label={"Heure de réservation"}
-                type={"text"}
-                value={bookingTime}
-                setValue={setBookingTime}
-            />
-            <SelectInput
-                label={"Type"}
-                setValue={setType}
-            />
-            <Button variant="contained" onClick={onButtonClick}>Valider</Button>
-        </div>
+            <div className="lunch-form">
+                <TextInput
+                    label={"What's the name of the restaurant?"}
+                    type={"text"}
+                    value={restaurant}
+                    setValue={setRestaurant}
+                    sx={{width: '100%'}}
+                    className="width-500"
+                />
+                <DateInput
+                    label={"What Time ?"}
+                    value={leaveTime}
+                    setValue={setLeaveTime}
+                    className="width-500"
+                />
+                <TextInput
+                    label={"How many people do you want to invite?"}
+                    type={"text"}
+                    value={numberPlaces}
+                    setValue={setNumberPlaces}
+                    sx={{width: '100%'}}
+                    className="width-500"
+                />
+                {/*<SelectInput*/}
+                {/*    label={"Type"}*/}
+                {/*    setValue={setType}*/}
+                {/*/>*/}
+            </div>
+            <Button
+                variant="contained"
+                onClick={onButtonClick}
+                sx={{width: '40%', background: '#FF9014'}}
+            >
+                Add lunch event
+            </Button>
+
+        </>
     );
 }
 

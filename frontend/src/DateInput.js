@@ -1,23 +1,22 @@
 import './TextInput.css';
+import './LunchForm.css'
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
+import TimePicker from '@mui/lab/TimePicker';
 
-const DateInput = ({label, type, value, setValue}) => {
+const DateInput = ({label, value, setValue, className}) => {
     return (
-        <form className="text-input">
-            <label className="label-text-input">{label}:
-
-            </label>
+        <form className={`text-input ${className}`}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                    label="Date"
+                <TimePicker
+                    label={label}
                     value={value}
                     onChange={(newValue) => {
                       setValue(newValue);
                     }}
-                    renderInput={(params) => <TextField {...params} />}
+                    renderInput={(params) => <TextField sx={{width: '100%'}} {...params} />}
+                    className="width-100"
                 />
             </LocalizationProvider>
         </form>

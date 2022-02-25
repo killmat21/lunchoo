@@ -1,28 +1,20 @@
 import './TextInput.css';
 import TextField from "@mui/material/TextField";
-const TextInput = ({label, type, value, setValue}) => {
+const TextInput = ({label, type, value, setValue, required, sx, className}) => {
 
 
     return (
-        <div className="text-input">
+        <div className={`text-input ${className}`}>
             <TextField
                 label={label}
                 type={type}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 size='small'
+                required={required}
+                sx={sx}
             />
         </div>
-        // <form className="text-input">
-        //     <label className="label-text-input">{label}:
-        //
-        //     </label>
-        //     <input className="input-margin"
-        //         type={type}
-        //         value={value}
-        //         onChange={(e) => setValue(e.target.value)}
-        //     />
-        // </form>
     );
 }
 
