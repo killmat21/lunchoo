@@ -5,20 +5,22 @@ import {useState} from "react";
 import axios from 'axios';
 
 const Inscription = () => {
-    const [mail, setMail] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [team, setTeam] = useState("");
     const onButtonClick = () => {
         const user = {
-            mail,
+            email,
             password,
-            firstName,
-            lastName,
+            first_name: firstName,
+            last_name: lastName,
+            team_role: team,
+            photo: "https://google.com",
         }
         // TODO Add team in model and here
-        axios.post(`/api/users`, { user })
+        axios.post(`http://127.0.0.1:8000/user/`, user)
           .then(res => {
             console.log(res);
             console.log(res.data);
@@ -31,8 +33,8 @@ const Inscription = () => {
             <TextInput
                 label={"E-mail"}
                 type={"text"}
-                value={mail}
-                setValue={setMail}
+                value={email}
+                setValue={setEmail}
             />
             <TextInput
                 label={"Mot de passe"}
