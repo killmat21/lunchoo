@@ -2,6 +2,7 @@ import './Inscription.css';
 import Button from '@mui/material/Button';
 import TextInput from "../TextInput";
 import {useState} from "react";
+import axios from 'axios';
 
 const Inscription = () => {
     const [mail, setMail] = useState("");
@@ -10,6 +11,18 @@ const Inscription = () => {
     const [lastName, setLastName] = useState("");
     const [team, setTeam] = useState("");
     const onButtonClick = () => {
+        const user = {
+            mail,
+            password,
+            firstName,
+            lastName,
+        }
+        // TODO Add team in model and here
+        axios.post(`/api/users`, { user })
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
         console.log(firstName, lastName, team)
     }
 

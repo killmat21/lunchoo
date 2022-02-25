@@ -1,4 +1,4 @@
-import './Inscription.css';
+import './Inscription/Inscription.css';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import AddCircleIcon from '@mui/icons-material/AddCircle';

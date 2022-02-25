@@ -1,11 +1,5 @@
 from django.shortcuts import render
-from rest_framework.mixins import (
-    CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin
-)
-from rest_framework.viewsets import GenericViewSet
 
-from .models import Users, Lunches, LunchSubcribers, Restaurants
-from .serializers import UsersSerializer, LunchesSerializer, LunchSubcribersSerializer, RestaurantsSerializer
 from django.views import View
 from django.http import JsonResponse
 import json
@@ -14,38 +8,38 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
 
-class LunchesViewSet(
-    GenericViewSet,  # generic view functionality
-    CreateModelMixin,  # handles POSTs
-    RetrieveModelMixin,  # handles GETs for 1 Company
-    UpdateModelMixin,  # handles PUTs and PATCHes
-    ListModelMixin,  # handles GETs for many Companies
-
-):
-    serializer_class = LunchesSerializer
-    queryset = Lunches.objects.all()
-
-
-class LunchSubcribersViewSet(
-    GenericViewSet,  # generic view functionality
-    CreateModelMixin,  # handles POSTs
-    RetrieveModelMixin,  # handles GETs for 1 Company
-    UpdateModelMixin,  # handles PUTs and PATCHes
-    ListModelMixin,  # handles GETs for many Companies
-):
-    serializer_class = LunchSubcribersSerializer
-    queryset = LunchSubcribers.objects.all()
-
-
-class RestaurantsViewSet(
-    GenericViewSet,  # generic view functionality
-    CreateModelMixin,  # handles POSTs
-    RetrieveModelMixin,  # handles GETs for 1 Company
-    UpdateModelMixin,  # handles PUTs and PATCHes
-    ListModelMixin,  # handles GETs for many Companies
-):
-    serializer_class = RestaurantsSerializer
-    queryset = Restaurants.objects.all()
+# class LunchesViewSet(
+#     GenericViewSet,  # generic view functionality
+#     CreateModelMixin,  # handles POSTs
+#     RetrieveModelMixin,  # handles GETs for 1 Company
+#     UpdateModelMixin,  # handles PUTs and PATCHes
+#     ListModelMixin,  # handles GETs for many Companies
+#
+# ):
+#     serializer_class = LunchesSerializer
+#     queryset = Lunches.objects.all()
+#
+#
+# class LunchSubcribersViewSet(
+#     GenericViewSet,  # generic view functionality
+#     CreateModelMixin,  # handles POSTs
+#     RetrieveModelMixin,  # handles GETs for 1 Company
+#     UpdateModelMixin,  # handles PUTs and PATCHes
+#     ListModelMixin,  # handles GETs for many Companies
+# ):
+#     serializer_class = LunchSubcribersSerializer
+#     queryset = LunchSubcribers.objects.all()
+#
+#
+# class RestaurantsViewSet(
+#     GenericViewSet,  # generic view functionality
+#     CreateModelMixin,  # handles POSTs
+#     RetrieveModelMixin,  # handles GETs for 1 Company
+#     UpdateModelMixin,  # handles PUTs and PATCHes
+#     ListModelMixin,  # handles GETs for many Companies
+# ):
+#     serializer_class = RestaurantsSerializer
+#     queryset = Restaurants.objects.all()
 
 @method_decorator(csrf_exempt, name='dispatch')
 class User(View):

@@ -18,14 +18,14 @@ from django.urls import path, include
 
 from django.conf.urls import include
 from rest_framework.routers import DefaultRouter
-from ..app.views import UsersViewSet, LunchesViewSet, LunchSubcribersViewSet, RestaurantsViewSet
+# from ..app.views import UsersViewSet, LunchesViewSet, LunchSubcribersViewSet, RestaurantsViewSet
 
 
-router = DefaultRouter()
-router.register('users', UsersViewSet, 'users')
-router.register('lunches', LunchesViewSet, 'lunches')
-router.register('lunch_suscribers', LunchSubcribersViewSet, 'lunch_suscribers')
-router.register('restaurants', RestaurantsViewSet, 'restaurants')
+# router = DefaultRouter()
+# router.register('users', UsersViewSet, 'users')
+# router.register('lunches', LunchesViewSet, 'lunches')
+# router.register('lunch_suscribers', LunchSubcribersViewSet, 'lunch_suscribers')
+# router.register('restaurants', RestaurantsViewSet, 'restaurants')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
