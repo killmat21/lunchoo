@@ -15,7 +15,7 @@ const LunchForm = () => {
 
     const [restaurant, setRestaurant] = useState("");
     const [numberPlaces, setNumberPlaces] = useState(1);
-    const [leaveTime, setLeaveTime] = useState(new Date('2020-01-01 12:00'));
+    const [leaveTime, setLeaveTime] = useState(new Date('12:00'));
     const onButtonClick = () => {
         const lunch = {
             place: restaurant,
