@@ -1,9 +1,18 @@
+import axios from "axios";
 import './LunchCard.css';
 import Button from '@mui/material/Button';
 import person from './person.png'
 
 const onJoinGroupClick = (lunch) => {
-    // TODO take lunch.id and make call
+    const join = {
+        user_id: localStorage.getItem("user_id"),
+        lunch_id: lunch.id
+    }
+    axios.post(`http://127.0.0.1:8000/lunch_subscribe/`, join)
+          .then(res => {
+              console.log(res);
+              console.log(res.data);
+          })
 }
 
 const LunchCard = ({lunch}) => {
