@@ -15,7 +15,7 @@ const DateInput = ({label, value, setValue, className}) => {
                     onChange={(newValue) => {
                       setValue(newValue);
                     }}
-                    renderInput={(params) => <TextField sx={{width: '100%'}} {...params} />}
+                    renderInput={(params) => <TextField sx={{width: '100%', marginBottom: '16px'}} {...params} />}
                     className="width-100"
                 />
             </LocalizationProvider>
