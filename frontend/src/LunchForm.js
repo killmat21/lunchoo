@@ -59,15 +59,12 @@ const LunchForm = () => {
                     sx={{width: '100%'}}
                     className="width-500"
                 />
-                {/*<SelectInput*/}
-                {/*    label={"Type"}*/}
-                {/*    setValue={setType}*/}
-                {/*/>*/}
             </div>
             <Button
+                className="validationButton"
                 variant="contained"
                 onClick={onButtonClick}
-                sx={{width: '40%', background: '#FF9014'}}
+                sx={{width: '700px', background: '#FF9014', right: '100px'}}
             >
                 Add lunch event
             </Button>
