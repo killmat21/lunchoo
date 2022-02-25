@@ -1,4 +1,5 @@
 import './LunchCard.css';
+import Button from '@mui/material/Button';
 import person from './person.png'
 
 const onJoinGroupClick = (lunch) => {
@@ -15,7 +16,7 @@ const LunchCard = ({lunch}) => {
                 {lunch.participantsList.map(participant => (
                     <img src={person} alt=""/>
                 ))}
-                <button onClick={onJoinGroupClick(lunch)}>Join group</button>
+                <Button className="joinGroupButton" onClick={onJoinGroupClick(lunch)}>Join Group</Button>
             </div>
         </div>
     );
