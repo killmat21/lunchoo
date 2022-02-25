@@ -1,0 +1,57 @@
+.lunchCard {
+  max-width: 450px;
+  border-radius: 25px;
+  margin: auto;
+  padding: 10px 20px;
+  text-align: left;
+  background-color: white;
+  margin-bottom: 17px;
+  padding-left: 39px;
+  padding-top: 21px;
+  flex: 50%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+
+.lunchCard p {
+  padding: 0;
+  margin: 0;
+}
+
+.lunchCard .restaurantName {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.lunchCard .time {
+  font-size: 20px;
+  font-weight: bold;
+  color: #828282;
+  padding-bottom: 38px;
+}
+
+.lunchCard .lunchParticipantsList {
+  font-size: 10px;
+}
+
+.lunchCard .lunchParticipantsList img {
+  max-width: 43px;
+  border-radius: 25px;
+  background-color: white;
+  margin-top: 5px;
+}
+
+.lunchCard .lunchParticipantsList img:nth-child(n+3) {
+  margin-left: -10px;
+}
+
+button {
+  float: right;
+  color: white;
+  background-color: #FF9014;
+  border: None;
+  border-radius: 25px;
+  padding: 10px 15px;
+  margin-top: 8px;
+}

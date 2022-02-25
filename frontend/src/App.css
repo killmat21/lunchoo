@@ -1,11 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
 .App {
   text-align: center;
 }
 
-.lunchCard {
-  border: 1px solid black;
-  max-width: 600px;
+html {
+  height: 100vh;
+  background-color: #fbfbfb;
+  max-width: 920px;
   margin: auto;
-  padding: 10px 20px;
-  text-align: left;
 }
