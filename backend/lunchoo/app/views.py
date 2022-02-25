@@ -33,7 +33,7 @@ class User(View):
         user = Users.objects.create(**user_data)
 
         data = {
-            "message": f"New user created id: {user.id}"
+            "id": user.id
         }
         return JsonResponse(data, status=201)
 
