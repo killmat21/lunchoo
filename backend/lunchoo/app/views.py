@@ -65,4 +65,8 @@ class Lunches(View):
         }
         return JsonResponse(data, status=201)
 
+    def get(self, request):
+        lunches = Lunch.objects.all().order_by('departure_date').values()
+        return JsonResponse({"lunches": list(lunches)}, status=200)
+
 
