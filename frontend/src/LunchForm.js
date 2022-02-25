@@ -21,6 +21,7 @@ const LunchForm = () => {
             book_limit_date: bookingTime,
             number_places: numberPlaces,
             type: type,
+            user_id: localStorage.getItem("user_id"),
         }
         axios.post(`http://127.0.0.1:8000/lunch/`, lunch)
           .then(res => {
