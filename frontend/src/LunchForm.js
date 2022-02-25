@@ -28,8 +28,8 @@ const LunchForm = () => {
           .then(res => {
             console.log(res);
             console.log(res.data);
+            navigate(`/listing-lunches`);
           })
-        navigate(`/listing-lunches`);
         console.log(restaurant, leaveTime, numberPlaces)
     }
 
