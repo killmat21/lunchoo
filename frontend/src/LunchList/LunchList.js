@@ -13,7 +13,6 @@ const LunchList = () => {
           .get("http://127.0.0.1:8000/lunch/")
           .then(response => setLunches(response.data.lunches));
       }, []);
-    console.log("COUCOU : " + JSON.stringify(lunches))
 
     let navigate = useNavigate();
     const onButtonClick = () => {

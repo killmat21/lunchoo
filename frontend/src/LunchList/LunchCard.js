@@ -21,7 +21,7 @@ const LunchCard = ({lunch}) => {
             <p className="restaurantName"><span>🍕</span> {lunch.place}</p>
             <p className="time">{lunch.departure_date}</p>
             <div className="lunchParticipantsList">
-                <p>{lunch.users.length} people going</p>
+                <p>{lunch.users.length}/{lunch.number_places} people going</p>
                 {lunch.users.map(participant => (
                     <img src={person} alt=""/>
                 ))}
